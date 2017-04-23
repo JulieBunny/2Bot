@@ -19,10 +19,10 @@ client.on('message', msg => {
             '!nextraid' +
             '!hype')
     }
-    if (message.content === '!nextraid') {
+    if (msg.content === '!nextraid') {
         msg.channel.send('There is currently no scheduled raid.')
     }
-    if (message.content === '!hype') {
+    if (msg.content === '!hype') {
         var sb = moment('2017-06-20');
         var now = moment();
         var diff = sb-now;
