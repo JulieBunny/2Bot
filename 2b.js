@@ -12,14 +12,12 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if (msg.content === 'ping') {
-    msg.reply('Pong!');
-}
+        msg.reply('Pong!');
+    }
 });
 
-//get api token
-var token = '';
-fs.readFile('token', function(err, data){
-    token = data;
-});
+//declare configs
+var token = fs.readFileSync("token").toString();
 
-client.login(token);
+console.log(token);
+// client.login(token);
