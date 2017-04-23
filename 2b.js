@@ -17,7 +17,7 @@ client.on('message', msg => {
 });
 
 //get api token
-var token;
+var token = '';
 fs.readFile('token', function(err, data){
     token = data;
 });
