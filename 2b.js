@@ -16,4 +16,10 @@ client.on('message', msg => {
 }
 });
 
-client.login(fs.readFile('token'));
+//get api token
+var token;
+fs.readFile('token', function(err, data){
+    token = data;
+});
+
+client.login(token);
