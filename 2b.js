@@ -7,20 +7,25 @@ const fs = require("fs");
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.username}!`);
+    console.log('Logged in as ${client.user.username}!');
 });
 
 client.on('message', msg => {
     if (msg.content === '!2b') {
-        msg.channel.send('I am currently in development.' +
+        msg.channel.send('I am in the early phases of my development.' +
+            '\n\n' +
+            'If you have any requests or idea, you may send them to @Julie 🐇#7140' +
+            '\n' +
+            'You can contribute here: https://github.com/JulieCheckmaid/2Bot' +
             '\n\n' +
             'Available commands:' +
             '\n\n' +
             '!nextraid' +
-            '!hype')
+            '\n' +
+            '!hype');
     }
     if (msg.content === '!nextraid') {
-        msg.channel.send('There is currently no scheduled raid.')
+        msg.channel.send('There is currently no scheduled raid.');
     }
     if (msg.content === '!hype') {
         var sb = moment('2017-06-20');
@@ -39,6 +44,11 @@ client.on('message', msg => {
         var diffText = daysText + hoursText + minutesText + secondsText;
 
         msg.channel.send('Stormblood releases in ' + diffText);
+    }
+
+    //random commands
+    if (msg.content === '!joygun') {
+        msg.channel.send(':joy: :gun:');
     }
 
 });
