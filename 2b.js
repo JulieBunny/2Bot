@@ -7,16 +7,16 @@ const fs = require("fs");
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    console.log('Logged in as ${client.user.username}!');
+    console.log("Successfully logged in.");
 });
 
 client.on('message', msg => {
     if (msg.content === '!2b') {
         msg.channel.send('I am in the early phases of my development.' +
             '\n\n' +
-            'If you have any requests or idea, you may send them to @Julie 🐇#7140' +
+            'If you have any requests or idea, you may send them to <@83957952582520832>' +
             '\n' +
-            'You can contribute here: https://github.com/JulieCheckmaid/2Bot' +
+            'You can contribute here: <https://github.com/JulieCheckmaid/2Bot>' +
             '\n\n' +
             'Available commands:' +
             '\n\n' +
