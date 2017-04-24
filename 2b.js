@@ -18,6 +18,8 @@ client.on('message', msg => {
             '\n' +
             'You can contribute here: <https://github.com/JulieCheckmaid/2Bot>' +
             '\n\n' +
+            '======================================================================================' +
+            '\n\n' +
             'Available commands:' +
             '\n\n' +
             '!nextraid' +
