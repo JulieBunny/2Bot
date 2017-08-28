@@ -1,5 +1,3 @@
-const moment = require("moment");
-
 /**
  * List of available commands.
  */
