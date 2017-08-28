@@ -1,13 +1,18 @@
 const moment = require("moment");
 
+/**
+ * List of available commands.
+ */
 var commands = {
+	//TODO commands with multiple aliases?
 	'2b': _2b
-	,nextraid: nextraid
-	,hype: hype
-	//random commands
-	,joygun: joygun
-}
+	,'nextraid': nextraid
+};
 
+/**
+ * Information on the discord bot.
+ * @returns {{output: string}}
+ */
 function _2b() {
 	return {
 		output: 
@@ -20,43 +25,20 @@ function _2b() {
 			'======================================================================================' +
 			'\n\n' +
 			'Available commands:' +
+            '\n\n' +
+            '!2b' +
 			'\n\n' +
-			'!nextraid' +
-			'\n' +
-			'!hype'
+			'!nextraid'
 	};
 }
 
+/**
+ * Returns the date for the next raid.
+ * @returns {{output: string}}
+ */
 function nextraid() {
 	return {
 		output: 'There is currently no scheduled raid.'
-	};
-}
-
-function hype() {
-	var sb = moment('2017-06-20');
-	var now = moment();
-	var diff = sb-now;
-
-	var days = diff / 1000 / 60 / 60 / 24;
-	var hours = (days - (Math.floor(days))) * 24;
-	var minutes = (hours - (Math.floor(hours))) * 60;
-	var seconds = (minutes - (Math.floor(minutes))) * 60;
-	var daysText = Math.floor(days) + " days ";
-	var hoursText = Math.floor(hours)  + " hours ";
-	var minutesText = Math.floor(minutes) + " minutes ";
-	var secondsText = Math.floor(seconds) + " seconds ";
-
-	var diffText = daysText + hoursText + minutesText + secondsText;
-	
-	return {
-		output: 'Stormblood releases in ' + diffText
-	};
-}
-
-function joygun() {
-	return {
-		output: ':joy: :gun:'
 	};
 }
 
@@ -71,4 +53,4 @@ exports.executeCommand = function(command) {
 	} else {
 		return commands[command]();
 	}
-}
+};
