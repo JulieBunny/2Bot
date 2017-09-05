@@ -8,7 +8,7 @@
 /**
  * List of available commands.
  */
-var commands = {
+const commands = {
 	//TODO commands with multiple aliases?
 	'2b': _2b
 	,'nextraid': nextraid
