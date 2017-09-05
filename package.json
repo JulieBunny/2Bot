@@ -3,5 +3,9 @@
   "version": "0.0.1",
   "dependencies": {
     "discord.js": "latest"
+    ,"googleapis": "latest"
+    ,"google-auth-library": "latest"
+    ,"moment": "latest"
+    ,"moment-timezone": "latest"
   }
 }

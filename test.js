@@ -5,7 +5,5 @@ function testCommand(command) {
 	console.log(command, commandResult.output);
 }
 
-testCommand("!joygun");
-testCommand("joygun");
-testCommand("!jogun");
-testCommand("!hype");
+testCommand("!info");
+testCommand("!nextraid");
