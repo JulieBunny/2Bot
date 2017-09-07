@@ -6,29 +6,31 @@ var calendar = google.calendar('v3');
  *
  * @returns {{output: object}}
  */
-exports.nextRaid = function(callback) {
-	getAuth(function nextRaid(auth) {
-	  //https://developers.google.com/google-apps/calendar/v3/reference/events/list
-	  calendar.events.list({
-		auth: auth,
-		calendarId: 'primary',
-		timeMin: (new Date()).toISOString(),
-		maxResults: 10,
-		singleEvents: true,
-		orderBy: 'startTime'
-	  }, function(err, response) {
-		if (err) {
-		  console.log('The API returned an error: ' + err);
-		  callback(null);
-		  return;
-		}
-		if (response.items[0])
-			callback(response.items[0]);
-		else
-			callback(null);
-	  });
-	})
-}
+exports.nextRaid = () => {
+	return new Promise((resolve, reject) => {
+		getAuth(function nextRaid(auth) {
+		  //https://developers.google.com/google-apps/calendar/v3/reference/events/list
+		  calendar.events.list({
+			auth: auth,
+			calendarId: 'primary',
+			timeMin: (new Date()).toISOString(),
+			maxResults: 10,
+			singleEvents: true,
+			orderBy: 'startTime'
+		  }, function(err, response) {
+			if (err) {
+			  console.log('The API returned an error: ' + err);
+			  resolve(null);
+			  return;
+			}
+			if (response.items[0])
+				resolve(response.items[0]);
+			else
+				resolve(null);
+		  });
+		});
+	});
+};
 
 function getAuth(callback) {
 	var fs = require('fs');

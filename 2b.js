@@ -9,11 +9,10 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-
-	let commandResult = No2TypeB.executeCommand(msg.content);
-	if (commandResult.output)
-		msg.channel.send(commandResult.output);
-	
+	No2TypeB.executeCommand(msg.content).then((commandResult) => {
+		if (commandResult.output)
+			msg.channel.send(commandResult.output);
+	});
 });
 
 //get token
