@@ -7,6 +7,7 @@
 
 const No2TypeB_Calendar = require('./2b_calendar.js');
 const moment = require("moment-timezone");
+const Discord = require("discord.js");
 
 /**
  * List of available commands.
@@ -53,14 +54,16 @@ function getNextRaid() {
 		No2TypeB_Calendar.nextRaid().then((nextRaid) => {
 			if (nextRaid) {
 				let date = moment.tz(nextRaid.start.dateTime, 'America/New_York').format('dddd, MMMM D');
-				let times = getAllRaidTimes(nextRaid.start.dateTime).join('\n\t');
+				let times = getAllRaidTimes(nextRaid.start.dateTime).join('\n');
 				let type = getEventType(nextRaid.summary);
-				
+
+				let embed = new Discord.RichEmbed();
+				embed.setTitle('Next raid');
+				embed.setDescription(`The next raid will be on ${date} at:\n\n${times}\n\n Type: ${type}`);
+                embed.setImage('https://i.imgur.com/F6QeRZs.png');
+
 				resolve({
-					output: `Next raid is on:
-${date}
-	${times}
-Type: ${type}`
+					output: embed
 				});
 			} else {
 				//If there is no event found in the future, return message saying so to user.
